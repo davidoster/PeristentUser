@@ -44,6 +44,10 @@ public class PeristentUser {
         boolean delete = userService.deleteById(i);
         if(delete)
             System.out.println("User with id : " + i + " deleted successfully!");
+        
+        // int id is an id (PRIMARY KEY) !! WE DON'T KNOW IF IT IS A VALID ID
+        // IF IT IS VALID THEN UPDATE BY USING user object as below
+        userService.updateById(id, user);
     }
     
 }
