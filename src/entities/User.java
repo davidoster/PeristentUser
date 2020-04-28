@@ -33,7 +33,22 @@ public class User implements Serializable {
     private String email;
     
     public User() {}
+    
+    public User(String first_name, String last_name, String telephone, String email) {
+        this.firstName = first_name;
+        this.lastName = last_name;
+        this.tel = telephone;
+        this.email = email;
+    }
 
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
@@ -68,9 +83,6 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "firstName=" + firstName + ", lastName=" + lastName + ", tel=" + tel + ", email=" + email + '}';
+        return "User{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", tel=" + tel + ", email=" + email + '}';
     }
-    
-    
-    
 }

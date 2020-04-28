@@ -15,6 +15,8 @@ import java.util.List;
 public interface IUser {
     User findById(int id);
     List<User> findAll();
+    User findByEmail(String email);
     boolean deleteById(int id);
-    
+    User updateById(int id, User user);
+    User save(User user);
 }

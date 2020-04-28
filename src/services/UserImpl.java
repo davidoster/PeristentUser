@@ -32,6 +32,11 @@ public class UserImpl implements IUser {
     }
 
     @Override
+    public User findByEmail(String email) {
+        return userDao.findByEmail(email);
+    }
+    
+    @Override
     public boolean deleteById(int id) {
         if(id <= 0) 
             return false;
@@ -40,9 +45,18 @@ public class UserImpl implements IUser {
         }
         
     }
-    
-    
-    
-    
-    
+
+    @Override
+    public User updateById(int id, User user) {
+        if(id <= 0) 
+            return null;
+        else {
+            return userDao.updateById(id, user);
+        }
+    }
+
+    @Override
+    public User save(User user) {
+        return userDao.save(user);
+    }   
 }

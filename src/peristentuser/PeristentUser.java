@@ -36,9 +36,9 @@ public class PeristentUser {
         }
         
         List<User> users = userService.findAll();
-//        for(User user1 : users) {
-//            System.out.println(user1);
-//        }
+        for(User user1 : users) {
+            System.out.println(user1);
+        }
         
         int i = 1;
         boolean delete = userService.deleteById(i);
@@ -47,7 +47,18 @@ public class PeristentUser {
         
         // int id is an id (PRIMARY KEY) !! WE DON'T KNOW IF IT IS A VALID ID
         // IF IT IS VALID THEN UPDATE BY USING user object as below
-        userService.updateById(id, user);
+        int id = 2;
+        User user1 = new User("George", "Pasparakis", "6977649229", "paspa@hotmail.com");
+        
+        userService.updateById(id, user1);
+       
+        
+        User user2 = new User("George", "Pasparakis", "6948044759", "davidoster73@gmail.com");
+        
+        /* UNCOMMENT LINES BELOW AND FIX */
+//        userService.save(user1);
+//        userService.save(user2);
+       
     }
     
 }

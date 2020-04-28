@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -34,6 +35,13 @@ public class UserDaoImpl implements IUserDao {
     public List<User> findAll() {
         return em.createQuery("SELECT zoukou FROM User zoukou", User.class).getResultList();
     }
+    
+    @Override
+    public User findByEmail(String email) {
+        String query = "SELECT * FROM `users` WHERE `email` = '" + email + "';";
+        Query q = em.createNativeQuery(query, User.class);
+        return (User)q.getSingleResult(); // if more than one results, javax.persistence.NonUniqueResultException FIX
+    }
 
     @Override
     public boolean deleteById(int id) {
@@ -50,6 +58,26 @@ public class UserDaoImpl implements IUserDao {
         }
             
     }
-    
-    
+
+    @Override
+    public User updateById(int id, User user) {
+        em.getTransaction().begin();
+        User db_user = em.find(User.class, id);
+        if(db_user != null) {
+            db_user.setFirstName(user.getFirstName());
+            db_user.setLastName(user.getLastName());
+            db_user.setTel(user.getTel());
+            db_user.setEmail(user.getEmail());
+            em.getTransaction().commit();
+        }
+        return db_user;
+    }
+
+    @Override
+    public User save(User user) {
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();
+        return findByEmail(user.getEmail());
+    }
 }
