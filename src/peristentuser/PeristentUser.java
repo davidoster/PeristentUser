@@ -24,7 +24,7 @@ public class PeristentUser {
             findAll()
             save(User user) // insert into
             update(int id, User user)
-            delete(int id)
+            deleteById(int id)
         
         */
         services.UserImpl userService = new services.UserImpl();
@@ -36,9 +36,14 @@ public class PeristentUser {
         }
         
         List<User> users = userService.findAll();
-        for(User user1 : users) {
-            System.out.println(user1);
-        }
+//        for(User user1 : users) {
+//            System.out.println(user1);
+//        }
+        
+        int i = 1;
+        boolean delete = userService.deleteById(i);
+        if(delete)
+            System.out.println("User with id : " + i + " deleted successfully!");
     }
     
 }

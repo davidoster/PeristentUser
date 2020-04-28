@@ -34,6 +34,22 @@ public class UserDaoImpl implements IUserDao {
     public List<User> findAll() {
         return em.createQuery("SELECT zoukou FROM User zoukou", User.class).getResultList();
     }
+
+    @Override
+    public boolean deleteById(int id) {
+        em.getTransaction().begin();
+        User user = em.find(User.class, id);
+        if(user != null) {
+            em.remove(user);
+            em.getTransaction().commit();
+            return true;
+        }
+        else {
+            em.getTransaction().commit();
+            return false;
+        }
+            
+    }
     
     
 }

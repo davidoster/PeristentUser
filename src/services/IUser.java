@@ -15,5 +15,6 @@ import java.util.List;
 public interface IUser {
     User findById(int id);
     List<User> findAll();
+    boolean deleteById(int id);
     
 }

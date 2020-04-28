@@ -30,6 +30,18 @@ public class UserImpl implements IUser {
     public List<User> findAll() {
         return userDao.findAll();
     }
+
+    @Override
+    public boolean deleteById(int id) {
+        if(id <= 0) 
+            return false;
+        else {
+            return userDao.deleteById(id);
+        }
+        
+    }
+    
+    
     
     
     
