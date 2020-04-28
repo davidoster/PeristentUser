@@ -6,12 +6,14 @@
 package services;
 
 import entities.User;
+import java.util.List;
 
 /**
  *
  * @author mac
  */
 public class UserImpl implements IUser {
+    private dao.UserDaoImpl userDao;
     // BUSINESS LOGIC
     @Override
     public User findById(int id) {
@@ -19,9 +21,16 @@ public class UserImpl implements IUser {
             return null;
         else {
             // DAO = Data Access Object
-            dao.UserDaoImpl userDao = new dao.UserDaoImpl();
+            userDao = new dao.UserDaoImpl();
             return userDao.findById(id);
         } 
     }
+
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
+    
+    
     
 }

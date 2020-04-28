@@ -6,6 +6,7 @@
 package services;
 
 import entities.User;
+import java.util.List;
 
 /**
  *
@@ -13,5 +14,6 @@ import entities.User;
  */
 public interface IUser {
     User findById(int id);
+    List<User> findAll();
     
 }

@@ -6,6 +6,7 @@
 package dao;
 
 import entities.User;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -25,11 +26,14 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public User findById(int id) {
-          
         User user = em.find(User.class, id);
         return user;
-        
-        
     }
+
+    @Override
+    public List<User> findAll() {
+        return em.createQuery("SELECT zoukou FROM User zoukou", User.class).getResultList();
+    }
+    
     
 }

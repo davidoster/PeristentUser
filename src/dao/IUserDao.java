@@ -6,6 +6,7 @@
 package dao;
 
 import entities.User;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import entities.User;
  */
 public interface IUserDao {
     User findById(int id);
+    List<User> findAll();
 }

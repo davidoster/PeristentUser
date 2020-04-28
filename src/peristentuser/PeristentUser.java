@@ -6,6 +6,7 @@
 package peristentuser;
 
 import entities.User;
+import java.util.List;
 
 /**
  *
@@ -32,6 +33,11 @@ public class PeristentUser {
             System.out.println("Oh!!! Something is not found!!");
         } else {
             System.out.println(user);
+        }
+        
+        List<User> users = userService.findAll();
+        for(User user1 : users) {
+            System.out.println(user1);
         }
     }
     
