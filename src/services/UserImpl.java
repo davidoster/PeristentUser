@@ -12,7 +12,7 @@ import entities.User;
  * @author mac
  */
 public class UserImpl implements IUser {
-
+    // BUSINESS LOGIC
     @Override
     public User findById(long id) {
         if(id <= 0) 

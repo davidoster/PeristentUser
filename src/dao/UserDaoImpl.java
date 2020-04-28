@@ -15,7 +15,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public User findById(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }
