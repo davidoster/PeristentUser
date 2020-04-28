@@ -27,8 +27,12 @@ public class PeristentUser {
         
         */
         services.UserImpl userService = new services.UserImpl();
-        User user = userService.findById(1);
-        if(user == null) System.out.println("Oh!!! Something is not found!!");
+        User user = userService.findById(5);
+        if(user == null) {
+            System.out.println("Oh!!! Something is not found!!");
+        } else {
+            System.out.println(user);
+        }
     }
     
 }

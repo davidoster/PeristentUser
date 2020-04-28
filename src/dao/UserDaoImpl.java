@@ -6,15 +6,29 @@
 package dao;
 
 import entities.User;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author mac
  */
 public class UserDaoImpl implements IUserDao {
+    private EntityManagerFactory emf;
+    private EntityManager em;
+    
+    public UserDaoImpl() {
+        emf = Persistence.createEntityManagerFactory("PeristentUserPU");
+        em = emf.createEntityManager();
+    }
 
     @Override
-    public User findById(long id) {
+    public User findById(int id) {
+          
+        User user = em.find(User.class, id);
+        return user;
+        
         
     }
     

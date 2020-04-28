@@ -14,7 +14,7 @@ import entities.User;
 public class UserImpl implements IUser {
     // BUSINESS LOGIC
     @Override
-    public User findById(long id) {
+    public User findById(int id) {
         if(id <= 0) 
             return null;
         else {

@@ -12,5 +12,5 @@ import entities.User;
  * @author mac
  */
 public interface IUserDao {
-    User findById(long id);
+    User findById(int id);
 }
